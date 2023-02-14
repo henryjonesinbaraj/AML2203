@@ -3,6 +3,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 import docx2txt
 import fitz
 from nltk.tokenize import WhitespaceTokenizer
+import re
 
 #converts doc format to text
 resume_docx = docx2txt.process("resume.docx")
@@ -20,6 +21,42 @@ job_description= docx2txt.process("JD.docx")
 #takes the texts in a list
 text_docx= [resume_docx,job_description]
 text_pdf=[resume_pdf,job_description]
+
+#creating the list of words from the word document
+text_tokenizer= WhitespaceTokenizer()
+words_docx_list = text_tokenizer.tokenize(resume_docx)
+#print(words_docx_list)
+
+#creating the list of words from the pdf document
+words_pdf_list = text_tokenizer.tokenize(resume_pdf)
+#print(words_pdf_list)
+# reference : https://stackoverflow.com/questions/47301795/how-can-i-remove-special-characters-from-a-list-of-elements-in-python
+
+#removing speacial charcters from the tokenized words 
+remove_characters= str.maketrans("", "", "±§!@#$%^&*()-_=+[]}{;'\:,./<>?|")
+words_pdf_list=[s.translate(remove_characters) for s in words_pdf_list]
+words_docx_list=[s.translate(remove_characters) for s in words_docx_list]
+
+# print(words_pdf_list)
+# print("===============================================")
+# print(words_docx_list)
+
+#counting number of each word in the list
+
+def count_words(listy):
+    counts=dict()
+    for word in listy:
+        if word in counts:
+            counts[word]+=1
+        else:
+            counts[word]=1
+    count_keys=list(counts.keys())
+    count_keys.sort()
+    sorted_counts={item: counts[item] for item in count_keys}
+    return sorted_counts
+
+print(count_words(words_pdf_list))
+print(count_words(words_docx_list))
 
 #giving vectors to the words
 cv = CountVectorizer()
