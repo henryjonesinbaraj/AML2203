@@ -6,9 +6,9 @@ Our main objective of the project is to create an application which will try to 
 
 step by step Agenda to acieve the goal:
 
-Import the necessary libraries
-Load the data in the word format
-convert the word format to text format
-store the Job description in the same format
-count the frequency of words occur in the resume to find the best one
+Import the necessary libraries.
+Load the data in the word format.
+convert the word format to text format.
+store the Job description in the same format.
+count the frequency of words occur in the resume to find the best one.
 display the words and the number of times it occured in the resume.
