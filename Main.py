@@ -77,10 +77,11 @@ def count_words(listy): # counting the each word count in the list of words
 
 
 
-st.title("Best resume match finder")
+st.title("Nexus Resume Scorer")
+st.write("Upload your resume/cv and the job description to get your resume score.\n ALL THE BEST !!")
  #takes the job description word document in a text format
 file_jd_docx=st.file_uploader("Upload the Job Description [docx]",type=["docx"])
-if st.button("upload"):
+if st.button("Upload"):
     if file_jd_docx is not None:
         st.write("Job description uploaded successfuly. Now You can find the best match !!")
     
@@ -94,7 +95,7 @@ if st.button("Submit"):
         words_trimmed_list=removecharcters(resume_text)
         county_words=trimmed_word_count(words_trimmed_list)
         match_percentage_docx = best_match(text_docx)
-        st.write(f'match percentage with the resume word document {match_percentage_docx}')
+        st.write(f'Match percentage with the resume word document {match_percentage_docx}')
         #st.write(county_words)
     else:
         pass
@@ -109,7 +110,7 @@ if st.button("Submit",key='1'):
         words_trimmed_list=removecharcters(resume_text)
         county_words=trimmed_word_count(words_trimmed_list)
         match_percentage_pdf = best_match(text_pdf)
-        st.write(f'match percentage with the resume pdf document {match_percentage_pdf}')
+        st.write(f'Match percentage with the resume pdf document {match_percentage_pdf}')
         #st.write(county_words)  
     else:
         pass
