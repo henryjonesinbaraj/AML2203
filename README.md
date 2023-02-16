@@ -24,3 +24,14 @@ planning to add more pages in the web application and generate more useful insig
 planning to implement to genrate match percentage for a bulk of resumes and gives the best resume on top.
 planing to expand this by connecting postgre sql database.
 it may end up a great HR system.
+
+Steps to run the code:
+1. Clone it to your systems.
+2. Dowload necessary packages.
+3. Ensure you have python 3.11 in kernal.
+4. Run the code.
+5. You will get a streamlit run command.
+6. Copy the command from streamlit Run ..... till .py
+7. Paste the the command in the terminal and run.
+8. Web page will be automatically open.
+9. upload and submit the documents to view your resume Scores.
